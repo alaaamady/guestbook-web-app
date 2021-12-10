@@ -11,12 +11,12 @@ function App() {
           <nav>
             <ul>
               <li>Guestbook</li>
-              <li><Link to='/'>Messages</Link></li>
+              <li><Link to='/messages'>Messages</Link></li>
               <li><Link to='/create'>Create Message</Link></li>
             </ul>
           </nav>
           <Routes>
-            <Route path="/" element={<Messages />}  />
+            <Route path="/messages" element={<Messages />}  />
             <Route path="/edit/:id" element={<EditMessage/>} />
             <Route path="/create" element={<CreateMessage />} />
           </Routes>
