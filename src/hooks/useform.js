@@ -9,10 +9,10 @@ export const useForm = (initialValues) => {
   return [
     values,
     (e) => {
-      setValues({
-        ...values,
+      setValues((old) => ({
+        ...old,
         [e.target.name]: e.target.value,
-      });
+      }));
     },
     resetValues,
   ];

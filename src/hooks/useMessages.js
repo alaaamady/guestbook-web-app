@@ -17,5 +17,5 @@ export const useMessages = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  return { messages, setLoading };
+  return [messages, setLoading];
 };

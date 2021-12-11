@@ -3,7 +3,8 @@ import Message from "./message.component";
 import { useMessages } from "../hooks/useMessages";
 
 function Messages() {
-  const { messages, isLoading } = useMessages();
+  const [messages, isLoading] = useMessages();
+
   const messageList = messages.map((currentMessage, i) => (
     <Message message={currentMessage} key={i} />
   ));
