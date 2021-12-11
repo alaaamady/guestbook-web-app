@@ -1,15 +1,19 @@
-import { useState } from "react/cjs/react.development"
+import { useState } from "react/cjs/react.development";
 
 export const useForm = (initialValues) => {
-    const [values, setValues] = useState(initialValues);
+  const [values, setValues] = useState(initialValues);
 
-    return[ 
-        values, 
-        e => {
-            setValues({
-                ...values,
-                [e.target.name]: e.target.value
-            });
-        }
-    ];
+  const resetValues = () => {
+    setValues(initialValues);
+  };
+  return [
+    values,
+    (e) => {
+      setValues({
+        ...values,
+        [e.target.name]: e.target.value,
+      });
+    },
+    resetValues,
+  ];
 };

@@ -1,12 +1,19 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from "react";
+import Message from "./message.component";
+import { useMessages } from "../hooks/useMessages";
 
-export default class Messages extends Component {
-    render() {
-        return (
-            <div>
-                <p>Welcome to Messages!</p>
-            </div>
-        )
-    }
+function Messages() {
+  const { messages, isLoading } = useMessages();
+  const messageList = messages.map((currentMessage, i) => (
+    <Message message={currentMessage} key={i} />
+  ));
+
+  return (
+    <>
+      <h3>Messages</h3>
+      {messageList}
+    </>
+  );
 }
 
+export default Messages;
