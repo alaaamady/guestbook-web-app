@@ -40,8 +40,8 @@ function Login() {
 
   return (
     <form onSubmit={handleLogin}>
-      <input type="text" name="username" required />
-      <input type="password" name="password" required />
+      <input type="text" name="username" placeholder="Username" required />
+      <input type="password" name="password" placeholde="Password" required />
       <button type="submit">Log In</button>
     </form>
   );

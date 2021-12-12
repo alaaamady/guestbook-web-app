@@ -14,7 +14,7 @@ function App() {
         <Route element={<Login />} exact path="/login" />
         <Route element={<Messages />} exact path="/messages" />
         <Route element={<EditMessage />} exact path="/edit/:id" />
-        <Route element={<CreateMessage />} exact path="/create" />
+        <Route element={<CreateMessage />} path="/create" />
       </Routes>
     </Router>
   );

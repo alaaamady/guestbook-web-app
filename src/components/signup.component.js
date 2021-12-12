@@ -19,24 +19,29 @@ function Signup() {
         "Content-type": "application/json",
       },
       body: JSON.stringify(user),
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => (data.isLoggedIn ? navigate("/messages") : null));
   }
 
   useEffect(() => {
     fetch("http://localhost:5000/isUserAuth", {
-      method: "GET",
       headers: {
         "x-access-token": localStorage.getItem("token"),
       },
     })
       .then((res) => res.json())
-      .then((data) => (data.isLoggedIn ? navigate("/messages") : null));
+      .then((data) => {
+        if (data.isLoggedIn) {
+          navigate("/messages");
+        }
+      });
   }, [navigate]);
 
   return (
     <form onSubmit={handleSignup}>
-      <input type="text" name="username" required />
-      <input type="password" name="password" required />
+      <input type="text" name="username" placeholder="Username" required />
+      <input type="password" name="password" placeholder="Password" required />
       <button type="submit">Sign up</button>
     </form>
   );

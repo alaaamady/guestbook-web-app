@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Message from "./message.component";
 import { useMessages } from "../hooks/useMessages";
+import { Link } from "react-router-dom";
 
 function Messages() {
   const [messages, isLoading] = useMessages();
@@ -12,6 +13,7 @@ function Messages() {
   return (
     <>
       <h3>Messages</h3>
+      <Link to={"/create"}>Create New Message</Link>
       {messageList}
     </>
   );
