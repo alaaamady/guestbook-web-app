@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "../hooks/useform";
+import { useNavigate } from "react-router";
 import axios from "axios";
 
 function CreateMessage() {
@@ -7,12 +8,10 @@ function CreateMessage() {
     title: "",
     content: "",
   });
+  const navigate = useNavigate();
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Submitted");
-    console.log(`Message Title ${values.title}`);
-    console.log(`Message Content: ${values.content}`);
 
     const newMessage = {
       message_title: values.title,
@@ -23,7 +22,7 @@ function CreateMessage() {
       .post("http://localhost:5000/messages/create", newMessage)
       .then((res) => {
         resetValues();
-        console.log(res.data);
+        navigate("/messages/");
       });
   };
 

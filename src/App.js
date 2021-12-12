@@ -1,26 +1,21 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
-import Messages from './components/messages.component';
-import EditMessage from './components/edit-message.component';
-import CreateMessage from './components/create-message.component';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Signup from "./components/signup.component";
+import Login from "./components/login.component";
+import Messages from "./components/messages.component";
+import EditMessage from "./components/edit-message.component";
+import CreateMessage from "./components/create-message.component";
 
 function App() {
   return (
     <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>Guestbook</li>
-              <li><Link to='/messages'>Messages</Link></li>
-              <li><Link to='/create'>Create Message</Link></li>
-            </ul>
-          </nav>
-          <Routes>
-            <Route path="/messages" element={<Messages />}  />
-            <Route path="/edit/:id" element={<EditMessage/>} />
-            <Route path="/create" element={<CreateMessage />} />
-          </Routes>
-        </div>
+      <Routes>
+        <Route element={<Signup />} exact path="/" />
+        <Route element={<Login />} exact path="/login" />
+        <Route element={<Messages />} exact path="/messages" />
+        <Route element={<EditMessage />} exact path="/edit/:id" />
+        <Route element={<CreateMessage />} exact path="/create" />
+      </Routes>
     </Router>
   );
 }

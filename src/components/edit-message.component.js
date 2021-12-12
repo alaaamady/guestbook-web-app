@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useForm } from "../hooks/useform";
 
@@ -29,9 +29,6 @@ function EditMessage() {
       });
   }, []);
 
-  useEffect(() => {
-    console.log(values);
-  }, [values]);
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -44,7 +41,7 @@ function EditMessage() {
       .post(`http://localhost:5000/messages/edit/${id}`, updatedMessage)
       .then((res) => {
         resetValues();
-        navigate("http://localhost:5000/messages/");
+        navigate("/messages/");
       });
   };
 
