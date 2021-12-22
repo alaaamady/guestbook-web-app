@@ -5,6 +5,7 @@ import Login from "./components/login.component";
 import Messages from "./components/messages.component";
 import EditMessage from "./components/edit-message.component";
 import CreateMessage from "./components/create-message.component";
+import "./App.css";
 
 function App() {
   return (

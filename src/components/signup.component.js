@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Signup() {
   const navigate = useNavigate();
@@ -39,11 +39,28 @@ function Signup() {
   }, [navigate]);
 
   return (
-    <form onSubmit={handleSignup}>
-      <input type="text" name="username" placeholder="Username" required />
-      <input type="password" name="password" placeholder="Password" required />
-      <button type="submit">Sign up</button>
-    </form>
+    <>
+      <form className="form" onSubmit={handleSignup}>
+        <h1 className="sign-title">Sign up</h1>
+        <label className="form-label" for="username">
+          Username
+        </label>
+        <input className="form-input" type="text" name="username" required />
+        <label className="form-label" for="password">
+          Password
+        </label>
+        <input
+          className="form-input"
+          type="password"
+          name="password"
+          required
+        />
+        <button className="form-button" type="submit">
+          Sign up
+        </button>
+        <Link to={"/login"}>Already a user? Login here!</Link>
+      </form>
+    </>
   );
 }
 
