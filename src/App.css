@@ -3,17 +3,25 @@ body,
 .root {
   height: 100%;
 }
-
-body {
-  line-height: 1.5;
-  font-family: "Montserrat", sans-serif;
-}
-
 body {
   background: #d3e0ea;
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: #396eb0;
+}
+
+a:hover {
+  color: #95d1cc;
 }
 
 /* Signup */
@@ -60,4 +68,37 @@ input.form-input {
   font-size: 1rem;
   font-weight: 800;
   color: white;
+}
+
+/* Messages */
+
+.message-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.messages-header {
+  font-size: 3rem;
+}
+.message {
+  background-color: white;
+  margin: 2%;
+  padding: 5%;
+  border-radius: 16px;
+  box-shadow: 0px 4px 8px rgba(90, 91, 106, 0.2);
+  min-width: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.message-title {
+  font-size: 1.5rem;
+}
+
+.message-content {
+  font-size: 1rem;
+  color: #6d6d6d;
 }

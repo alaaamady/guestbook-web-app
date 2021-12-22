@@ -7,9 +7,9 @@ function Message(props) {
   const [messages, isLoading] = useMessages();
   console.log(messages);
   return (
-    <div>
-      <h4>{props.message.message_title}</h4>
-      <p>{props.message.message_content}</p>
+    <div className="message">
+      <h4 className="message-title">{props.message.message_title}</h4>
+      <p className="message-content">{props.message.message_content}</p>
       <Link to={"/edit/" + props.message._id}>Edit Message</Link>
     </div>
   );
